@@ -71,6 +71,7 @@ void handle_ConfigJSON() {
   json["ip"] = WiFi.localIP().toString();
   json["time"] = GetTime();
   json["date"] = GetDate();
+  json["analog"] = analogRead(A0);
   // Помещаем созданный json в переменную root
   root = "";
   json.printTo(root);
