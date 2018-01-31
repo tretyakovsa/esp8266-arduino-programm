@@ -1,8 +1,8 @@
-#include <time.h>               //Содержится в пакете
+#include <time.h>               //Содержится в пакете.  Видео с уроком http://esp8266-arduinoide.ru/step8-timeupdate/
 void Time_init() {
   HTTP.on("/Time", handle_Time);     // Синхронизировать время устройства по запросу вида /Time
   HTTP.on("/timeZone", handle_time_zone);    // Установка времянной зоны по запросу вида http://192.168.0.101/timeZone?timeZone=3
-  timeSynch(timezone);
+  timeSynch(jsonReadtoInt(configSetup, "timezone"));
 }
 void timeSynch(int zone){
   if (WiFi.status() == WL_CONNECTED) {
@@ -23,13 +23,13 @@ void timeSynch(int zone){
 }
 // Установка параметров времянной зоны по запросу вида http://192.168.0.101/timeZone?timeZone=3
 void handle_time_zone() {
-  timezone = HTTP.arg("timeZone").toInt(); // Получаем значение timezone из запроса конвертируем в int сохраняем в глобальной переменной
+  jsonWrite(configSetup, "timezone", HTTP.arg("timeZone").toInt()); // Получаем значение timezone из запроса конвертируем в int сохраняем
   saveConfig();
   HTTP.send(200, "text/plain", "OK");
 }
 
 void handle_Time(){
-  timeSynch(timezone);
+  timeSynch(jsonReadtoInt(configSetup, "timezone"));
   HTTP.send(200, "text/plain", "OK"); // отправляем ответ о выполнении
   }
 
@@ -51,5 +51,6 @@ String GetDate() {
  int i = Data.lastIndexOf(" "); //Ишем позицию последнего символа пробел
  String Time = Data.substring(i - 8, i+1); // Выделяем время и пробел
  Data.replace(Time, ""); // Удаляем из строки 8 символов времени и пробел
+ Data.replace("\n", ""); // Удаляем символ переноса строки
  return Data; // Возврашаем полученную дату
 }
