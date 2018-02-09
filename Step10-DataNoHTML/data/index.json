@@ -16,6 +16,24 @@
    "title": "Конфигурация",
    "action": "/page.htm?setup",
    "class": "btn btn-block btn-danger"
+  },
+ {
+   "type": "link",
+   "title": "Возможности page.htm?*",
+   "action": "https://github.com/tretyakovsa/Sonoff_WiFi_switch/wiki/%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-page.htm%3F*",
+   "class": "btn btn-block btn-info"
+  },
+{
+   "type": "h1",
+   "title": "Тип памяти - {{flashChip}}"
+  },
+{
+   "type": "h1",
+   "title": "Кнопка - {{gpio0}}"
+  },
+{
+   "type": "h1",
+   "title": "Аналоговый вход - {{A0}}"
   }
  ]
 }

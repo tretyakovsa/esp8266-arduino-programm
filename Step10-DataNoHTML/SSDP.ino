@@ -1,4 +1,5 @@
 void SSDP_init(void) {
+  String chipID = String( ESP.getChipId() ) + "-" + String( ESP.getFlashChipId() );
   // SSDP дескриптор
   HTTP.on("/description.xml", HTTP_GET, []() {
     SSDP.schema(HTTP.client());
@@ -17,11 +18,13 @@ void SSDP_init(void) {
   SSDP.setSchemaURL("description.xml");
   SSDP.setHTTPPort(80);
   SSDP.setName(jsonRead(configSetup, "SSDP"));
-  SSDP.setSerialNumber("001788102201");
+  SSDP.setSerialNumber(chipID);
   SSDP.setURL("/");
-  SSDP.setModelName("Cod-No-HTML");
-  SSDP.setModelNumber("000000000001");
-  SSDP.setModelURL("http://esp8266-arduinoide.ru/step9-codnohtml/");
+  SSDP.setModelName("tech");
+  SSDP.setModelNumber(chipID + "/" + jsonRead(configSetup, "SSDP"));
+
+
+  SSDP.setModelURL("http://esp8266-arduinoide.ru/step10-datanohtml/");
   SSDP.setManufacturer("Tretyakov Sergey");
   SSDP.setManufacturerURL("http://www.esp8266-arduinoide.ru");
   SSDP.begin();

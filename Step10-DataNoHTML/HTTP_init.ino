@@ -3,10 +3,7 @@ void HTTP_init(void) {
 
   // --------------------Выдаем данные configJson
   HTTP.on("/config.live.json", HTTP_GET, []() {
-    jsonWrite(configJson, "time", GetTime());
-    jsonWrite(configJson, "date", GetDate());
-    jsonWrite(configJson, "gpio0", digitalRead(0));
-    jsonWrite(configJson, "A0", analogRead(A0));
+    outData();
     HTTP.send(200, "application/json", configJson);
   });
   // -------------------Выдаем данные configSetup
