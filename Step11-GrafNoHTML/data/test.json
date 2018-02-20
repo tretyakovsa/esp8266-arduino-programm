@@ -1,0 +1,39 @@
+{
+ "configs": [
+  "/config.live.json",
+  "/lang/lang.ru.json"
+ ],
+ "title": "Главная",
+ "class":"col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6",
+ "content": [
+  {
+   "type": "h5",
+   "title": "{{SSDP}}",
+   "class":"alert-warning"
+  },
+  {
+   "type": "link",
+   "title": "Конфигурация",
+   "action": "/page.htm?setup",
+   "class": "btn btn-block btn-danger"
+  },
+{
+   "type": "link",
+   "title": "Возможности page.htm?*",
+   "action": "https://github.com/tretyakovsa/Sonoff_WiFi_switch/wiki/%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-page.htm%3F*",
+   "class": "btn btn-block btn-info"
+  },
+{
+"type": "h1",
+"title": "Заголовок"
+},
+{
+"type": "text",
+"title": "Нажав Ctrl+M вы сможете открыть редактор страницы, через который можете добавить, удалить или изменить нужные вам элементы."
+},
+{
+"type": "img",
+"state": "http://www.privet.lv/images/moods/9.jpg"
+}
+ ]
+}
