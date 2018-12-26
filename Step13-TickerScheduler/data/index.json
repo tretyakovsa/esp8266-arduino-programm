@@ -1,0 +1,50 @@
+{
+ "configs": [
+  "/config.live.json",
+  "/lang/lang.ru.json"
+ ],
+ "title": "Главная",
+ "class":"col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6",
+ "content": [
+  {
+   "type": "h5",
+   "title": "{{SSDP}}",
+   "class":"alert-warning"
+  },
+  {
+   "type": "link",
+   "title": "Конфигурация",
+   "action": "/page.htm?setup",
+   "class": "btn btn-block btn-danger"
+  },
+ {
+   "type": "link",
+   "title": "Возможности page.htm?*",
+   "action": "https://github.com/tretyakovsa/Sonoff_WiFi_switch/wiki/%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-page.htm%3F*",
+   "class": "btn btn-block btn-info"
+  },
+{
+   "type": "link",
+   "title": "CHARTIST.JS",
+   "action": "https://gionkunz.github.io/chartist-js/index.html",
+   "class": "btn btn-block btn-info"
+  },
+ {
+   "type":"chart",
+"title": "Температура",
+   "state":"/charts.json?data=temperature",
+"points":10,
+"chartist":"Bar",
+"options":"high: 40,low: 18, showArea: true, fullWidth: true",
+  "style":"height:300px"
+  },
+ {
+   "type":"chart",
+"title": "Влажность",
+   "state":"/charts.json?data=humidity",
+"points":10,
+"options":"high: 100,low: 0, showArea: true, fullWidth: true",
+  "style":"height:300px"
+  }
+ ]
+}
